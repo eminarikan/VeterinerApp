@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hayvan Detay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="flex">
+    <div th:insert="fragments/sidebar.html :: sidebar"></div>
+    <div class="flex-col w-full h-screen bg-slate-100">
+        <div th:insert="fragments/header.html :: header('Hayvan Detay')"></div>
+        <div class="flex justify-between m-10  border-b border-blue-800">
+            <div class="flex">
+                <div class="">
+                    <p>İsim:</p>
+                    <p>Sahip:</p>
+                    <p>Tür:</p>
+                    <p>Cins:</p>
+                    <p>Yaş:</p>
+                    <p>Açıklama:</p>
+                </div>
+                <div class="ml-2 font-bold">
+                    <p th:text="${pet.getName()}"></p>
+                    <p th:text="${owner.getFirstName() +' '+ owner.getLastName()}"></p>
+                    <p th:text="${pet.getType()}"></p>
+                    <p th:text="${pet.getBreed()}"></p>
+                    <p th:text="${pet.getAge()}"></p>
+                    <p th:text="${pet.getDescription()}"></p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between mb-2">
+                <a th:href="@{/owners/{ownerId}/pets/edit/{petId}(ownerId=${owner.getId()}, petId= ${pet.getId()})}"  title="Düzenle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="#2563eb">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                </a>
+                <form th:method="post" id="petShowDeleteForm" th:action="@{/owners/{ownerId}/pets/delete/{petId}(ownerId=${owner.getId()}, petId= ${pet.getId()})}">
+                    <button type="submit" title="Sil">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="#f43f5e">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    document.getElementById("petShowDeleteForm").addEventListener("click", function (event){
+        if (confirm("Bu Kayıt Silinecek!") == false) {
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

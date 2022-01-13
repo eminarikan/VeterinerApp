@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hayvanlar Listesi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="flex">
+    <div th:insert="fragments/sidebar.html :: sidebar"></div>
+    <div class="flex-col w-full h-screen bg-slate-100">
+        <div th:insert="fragments/header.html :: header('Kayıtlı Hayvanlar')"></div>
+
+        <div th:if="${pets.size() != 0}">
+            <div class="w-4/6 mx-auto mt-10 overflow-y-auto max-h-96">
+                <table class="w-full">
+                    <thead class="border-b border-blue-800">
+                    <tr>
+                        <th class="text-left">İsim</th>
+                        <th class="text-left">Tür</th>
+                        <th class="text-left">Yaş</th>
+                        <th class="text-left">Sahip</th>
+                        <th class="text-left">Seçenekler</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="pet: ${pets}">
+                    <tr class="border-b border-blue-200">
+                        <td th:text="${pet.getName()}" class="py-4"></td>
+                        <td th:text="${pet.getType()}"></td>
+                        <td th:text="${pet.getAge()}"></td>
+                        <td th:text="${pet.getOwner().getFirstName()}"></td>
+                        <td class="flex items-center py-4">
+                            <a th:href="@{/owners/{ownerId}/pets/show/{petId}(ownerId=${pet.getOwner().getId()}, petId= ${pet.getId()})}" title="Göster">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="#22c55e">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </a>
+                            <a th:href="@{/owners/{ownerId}/pets/edit/{petId}(ownerId=${pet.getOwner().getId()}, petId= ${pet.getId()})}" class="ml-2" title="Düzenle">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="#2563eb">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </a>
+                            <form th:method="post" id="petIndexDeleteForm" th:action="@{/owners/{ownerId}/pets/delete/{petId}(ownerId=${pet.getOwner().getId()}, petId= ${pet.getId()})}" class="ml-2">
+                                <button type="submit" title="Sil">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="#f43f5e">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-center mt-10" th:unless="${pets.size() != 0}">Henüz kayıtlı hayvan yok!</div>
+    </div>
+</div>
+<script th:inline="javascript">
+    document.getElementById("petIndexDeleteForm").addEventListener("click", function (event){
+        if (confirm("Bu Kayıt Silinecek!") == false) {
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

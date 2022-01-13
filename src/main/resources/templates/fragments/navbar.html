@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div th:fragment="navbar">
+    <nav class="w-full h-12 px-4 py-2 bg-cyan-700">
+        <div class="w-5/6 mx-auto flex justify-between items-center">
+            <div><span class="font-extrabold"><a class="text-white hover:scale-110" href="/">VApp</a></span></div>
+            <div class="flex items-center justify-end" sec:authorize="isAnonymous()">
+                    <span class="px-2 py-1">
+                        <a href="/login" title="Giriş Yap" class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#ffffff">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                        </a>
+                    </span>
+            </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
