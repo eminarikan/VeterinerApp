@@ -5,7 +5,7 @@ VeterinerApp Spring boot ve Maven ile geliştirilmiş bir web uygulamasıdır.
 İndirip çalıştırmak için:
 
   1- Repository'i zip olarak indirin veye aşağıdaki linkten klonlayın:
-      https://github.com/eminarikan/VeterinerApp.git
+      git clone https://github.com/eminarikan/VeterinerApp.git
 	  
   2- Komut istemcinizden proje rootuna gidin:
       cd /VeterinerApp
