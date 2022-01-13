@@ -4,7 +4,7 @@ VeterinerApp Spring Boot, Spring JPA, Thymeleaf, TailwindCss ve Maven ile geliş
 
 İndirip çalıştırmak için:
 
-  1- Repository'i zip olarak indirin veye aşağıdaki linkten klonlayın:
+  1- Repository'i zip olarak indirin veya aşağıdaki linkten klonlayın:
   	
 	git clone https://github.com/eminarikan/VeterinerApp.git
 	  
