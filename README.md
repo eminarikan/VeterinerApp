@@ -24,3 +24,5 @@ VeterinerApp Spring boot ve Maven ile geliştirilmiş bir web uygulamasıdır.
   5- Uygulamayı tarayıcınızda aşağıdaki linke giderek kullanabilirsiniz:
   	
 	http://localhost:8080/
+	
+Not: Uygulama çalışabilmek için internet bağlantısına ihtiyaç duyar!
