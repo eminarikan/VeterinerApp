@@ -19,7 +19,7 @@ VeterinerApp Spring Boot, Spring JPA, Thymeleaf, TailwindCss ve Maven ile geliş
   4- Proje paketlendikten sonra target klasörüne gidin ve uygulamanın jar dosyasını çalıştırın:
   	
 	cd target
-	java -jar VeterinerApp-0.0.1-SNAPHOT.jar
+	java -jar VeterinerApp-0.0.1-SNAPSHOT.jar
 	  
   5- Uygulamayı tarayıcınızda aşağıdaki linke giderek kullanabilirsiniz:
   	
