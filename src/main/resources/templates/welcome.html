@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>VeterinerApp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="tr">
+<head th:replace="fragments/head :: head"></head>
+
 <body class="bg-slate-100">
 
     <div class="flex-col w-full mx-auto" sec:authorize="isAnonymous()">
