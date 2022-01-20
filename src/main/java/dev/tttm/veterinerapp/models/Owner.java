@@ -34,7 +34,7 @@ public class Owner {
     @NotEmpty(message = "Lütfen telefon numarası giriniz!")
     private String phone;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Pet> pets;
 
     public Long getId() {
