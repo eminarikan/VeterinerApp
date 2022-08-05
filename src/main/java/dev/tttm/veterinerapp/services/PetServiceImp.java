@@ -3,7 +3,6 @@ package dev.tttm.veterinerapp.services;
 import dev.tttm.veterinerapp.models.Owner;
 import dev.tttm.veterinerapp.models.Pet;
 import dev.tttm.veterinerapp.repositories.PetRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

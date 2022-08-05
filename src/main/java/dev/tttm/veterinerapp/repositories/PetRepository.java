@@ -1,6 +1,5 @@
 package dev.tttm.veterinerapp.repositories;
 
-import dev.tttm.veterinerapp.models.Owner;
 import dev.tttm.veterinerapp.models.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

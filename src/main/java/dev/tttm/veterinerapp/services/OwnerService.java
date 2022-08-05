@@ -2,7 +2,6 @@ package dev.tttm.veterinerapp.services;
 
 import dev.tttm.veterinerapp.models.Owner;
 import dev.tttm.veterinerapp.models.Pet;
-import dev.tttm.veterinerapp.models.User;
 
 import java.util.List;
 
