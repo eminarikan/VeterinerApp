@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+
 ### STS ###
 .apt_generated
 .classpath
@@ -29,5 +30,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+
+
 ### VS Code ###
 .vscode/
+src/main/resources/data/db.mv.db
+src/main/resources/data/db.trace.db
