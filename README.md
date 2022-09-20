@@ -1,6 +1,6 @@
 # VeterinerApp
 
-VeterinerApp Spring Boot, Spring JPA, Thymeleaf, TailwindCss ve Maven ile geliştirilmiş bir web uygulamasıdır. 
+VeterinerApp Spring Boot, Spring JPA, Thymeleaf, TailwindCss ve Maven ile geliştirilmiş bir demo web uygulamasıdır. 
 Bu web uygulaması, bir veteriner kliniği için hayvan ve hayvan sahibi kayıtlarını yönetme işlevlerini yerine getirmektedir.
 
 İndirip çalıştırmak için:
