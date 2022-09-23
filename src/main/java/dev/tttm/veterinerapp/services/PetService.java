@@ -1,5 +1,6 @@
 package dev.tttm.veterinerapp.services;
 
+import dev.tttm.veterinerapp.api.entity.AddPetDto;
 import dev.tttm.veterinerapp.models.Owner;
 import dev.tttm.veterinerapp.models.Pet;
 
@@ -13,4 +14,9 @@ public interface PetService {
     List<Pet> getAll();
     Long count();
 
+    Pet getByIdAndOwnerId(Long petId, Long ownerId);
+
+    void store(AddPetDto petDto, Owner owner);
+
+    boolean existById(Long id);
 }

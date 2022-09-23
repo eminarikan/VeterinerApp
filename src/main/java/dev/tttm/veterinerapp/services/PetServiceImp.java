@@ -1,5 +1,6 @@
 package dev.tttm.veterinerapp.services;
 
+import dev.tttm.veterinerapp.api.entity.AddPetDto;
 import dev.tttm.veterinerapp.models.Owner;
 import dev.tttm.veterinerapp.models.Pet;
 import dev.tttm.veterinerapp.repositories.PetRepository;
@@ -15,6 +16,7 @@ public class PetServiceImp implements PetService{
 
     @Override
     public void store(Owner owner, Pet pet) {
+        System.out.println(owner);
         pet.setOwner(owner);
         petRepository.save(pet);
     }
@@ -46,4 +48,21 @@ public class PetServiceImp implements PetService{
     public Long count() {
         return petRepository.count();
     }
+
+    @Override
+    public Pet getByIdAndOwnerId(Long petId, Long ownerId) {
+        return petRepository.getByIdAndOwnerId(petId, ownerId);
+    }
+
+    @Override
+    public void store(AddPetDto petDto, Owner owner) {
+        Pet pet = Pet.from(petDto);
+        this.store(owner, pet);
+    }
+
+    @Override
+    public boolean existById(Long id) {
+        return petRepository.existsById(id);
+    }
+
 }

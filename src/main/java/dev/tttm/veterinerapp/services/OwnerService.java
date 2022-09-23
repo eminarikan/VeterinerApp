@@ -13,4 +13,6 @@ public interface OwnerService {
     void delete(Long id);
     List<Owner> search(String keyword);
     Long count();
+
+    boolean existById(Long id);
 }

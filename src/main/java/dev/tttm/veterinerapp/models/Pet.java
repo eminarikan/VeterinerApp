@@ -1,5 +1,7 @@
 package dev.tttm.veterinerapp.models;
 
+import dev.tttm.veterinerapp.api.entity.AddPetDto;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -33,7 +35,37 @@ public class Pet {
     private String description;
 
     @ManyToOne(cascade = CascadeType.REFRESH, targetEntity = Owner.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Owner owner;
+
+    public static Pet from(AddPetDto petDto) {
+        Pet p = new Pet(petDto.getName(),
+                petDto.getBreed(),
+                petDto.getAge(),
+                petDto.getType(),
+                petDto.getDescription());
+        return p;
+    }
+    public Pet(String name, String breed, int age, String type, String description){
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        this.type = type;
+        this.description = description;
+    }
+    public Pet(){}
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", breed='" + breed + '\'' +
+                ", age=" + age +
+                ", description='" + description + '\'' +
+                ", owner=" + owner +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -89,5 +121,13 @@ public class Pet {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    public void update(AddPetDto petDto) {
+        this.name = petDto.getName();
+        this.age = petDto.getAge();
+        this.breed = petDto.getBreed();
+        this.type = petDto.getType();
+        this.description = petDto.getDescription();
     }
 }

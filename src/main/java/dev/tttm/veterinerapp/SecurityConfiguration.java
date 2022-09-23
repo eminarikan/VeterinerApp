@@ -46,12 +46,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/owners/**").hasAnyAuthority(Constant.USER, Constant.ADMIN)
                 .antMatchers("/search/**").hasAnyAuthority(Constant.USER, Constant.ADMIN)
                 .antMatchers("/pets/**").hasAnyAuthority(Constant.USER, Constant.ADMIN)
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
-                .permitAll();
+                .permitAll()
+                .and().csrf().disable();
     }
 }

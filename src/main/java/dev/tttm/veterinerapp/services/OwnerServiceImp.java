@@ -51,5 +51,10 @@ public class OwnerServiceImp implements OwnerService{
         return ownerRepository.count();
     }
 
+    @Override
+    public boolean existById(Long id) {
+        return ownerRepository.existsById(id);
+    }
+
 
 }
